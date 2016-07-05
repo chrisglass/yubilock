@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-
-# dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.Lock
-
 import dbus
 import pyudev
 
