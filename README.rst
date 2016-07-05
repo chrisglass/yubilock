@@ -7,4 +7,5 @@ Yubilock is a simple program that will lock your screen if a Yubikey is removed 
 Instrutions
 ------------
 
-Just run this. It doesn't demonize yet or do anything fancy.
+Just run "./yubilock.py". 
+It doesn't demonize yet or do anything fancy (yet?).
