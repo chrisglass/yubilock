@@ -20,12 +20,29 @@ if __name__ == "__main__":
     monitor = pyudev.Monitor.from_netlink(context)
     monitor.filter_by(subsystem="usb")
     monitor.start()
+
+    # The monitor will offer a generator that will wake up only on kernel
+    # events, but will block the thread. Since this program is donig nothing
+    # else, it's fine.
     for device in iter(monitor.poll, None):
-        if device["ACTION"] != "remove":
+
+        # Only consider devices with a device node, since we'll get two
+        # matching devices for each even.
+        if not device.device_node:
+            continue
+
+        # Make sure it's a Yubikey.
+        if device["ID_MODEL_FROM_DATABASE"] != "Yubikey":
             continue
         if device["ID_VENDOR_FROM_DATABASE"] != "Yubico.com":
             continue
-        if device["ID_MODEL_FROM_DATABASE"] != "Yubikey":
+
+        # Lock the screen if the key was removed.
+        if device["ACTION"] == "remove":
+            print("Yubikey removed - locking screen")
+            do_lock_session()
             continue
-        # We just removed a Yubikey. Kick a lock.
-        do_lock_session()
+        # Just print if it was added.
+        if device["ACTION"] == "add":
+            print("New Yubikey added!")
+            continue
