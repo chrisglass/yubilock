@@ -40,3 +40,8 @@ Simply run the ``./yubilock.py`` script as a normal logged in user from a termin
 
 It doesn't do anything fancy yet, and will simply log information about Yubikeys on
 stdout.
+
+The future
+----------
+
+An applet? Who knows!
