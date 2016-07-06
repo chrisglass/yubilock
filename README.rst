@@ -36,7 +36,7 @@ by default.
 Instructions
 ------------
 
-Simply run the ``./yubilock.py`` script as a normal logged in user from a terminal.
+Simply run the ``./yubilock`` script as a normal logged in user from a terminal.
 
 It doesn't do anything fancy yet, and will simply log information about Yubikeys on
 stdout.
