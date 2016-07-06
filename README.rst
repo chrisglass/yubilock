@@ -12,8 +12,8 @@ First of all: why not? :)
 I find myself working from cybercafes/coworking spaces quite often, and realized
 whenever I had to leave my computer, I systematically did two things:
 
-    1. Remove my Yubikey from the USB port it's plugged into
-    2. Lock my screen
+#. Remove my Yubikey from the USB port it's plugged into
+#. Lock my screen
 
 This program is a simple attempt at optimising this aspect of my life. Removing
 the Yubikey now triggers a screen lock!
