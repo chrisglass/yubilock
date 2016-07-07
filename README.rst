@@ -20,6 +20,8 @@ Adding this to a /etc/udev/rules.d/80-yubilock.rules file should do the trick.
 That will lock the screen for any USB device made by Yubico, you could add your
 specifi device ID as ``ATTRS{idProduct}`` if you want to narrow that down further.
 
+Thanks to `masta from reddit <https://www.reddit.com/r/yubikey/comments/4ri2by/a_small_utility_i_wrote_to_lock_your_screen_when/>`_!
+
 Why?
 ----
 
