@@ -4,6 +4,22 @@ Yubilock
 
 Yubilock is a simple program that will lock your screen if a `Yubikey <https://www.yubico.com/faq/yubikey/>`_ is removed from the computer.
 
+A better solution
+-------------------
+
+As others have pointed out, it can be achieved more elegantly with a udev rule,
+I'll keep this here for posterity and to serve as a reference for dbus/python3
+stuff in case somebody needs it.
+
+The udev rule in question is::
+
+    ACTION=="remove", ATTRS{idVendor}=="1050", RUN+="/bin/loginctl lock-sessions"
+
+Adding this to a /etc/udev/rules.d/80-yubilock.rules file should do the trick.
+
+That will lock the screen for any USB device made by Yubico, you could add your
+specifi device ID as ``ATTRS{idProduct}`` if you want to narrow that down further.
+
 Why?
 ----
 
